@@ -1,0 +1,35 @@
+.jumbotron {
+    background-color: #5AF;
+    color: white;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+}
+
+h3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.card-header {
+    background-color: #D85DE8;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 12px;
+}
+
+#add-train {
+    background-color: rgb(12, 62, 94);
+}
+
+label {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.btn {
+    background-color: #66FFCE;
+    color: black;
+}
