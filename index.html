@@ -39,22 +39,22 @@
     </br>
         <!-- JUMBOTRON AT TOP OF PAGE -->
         <div class="jumbotron">
-            <h1 class="text-center">Anytime is Train Time</h1>
-            <h3 class="text-center">Choo Choo!</h3>
+            <h1 class="text-center">ANYTIME IS TRAIN TIME</h1>
+            <h3 class="text-center">Choo Cho Train Scheduler</h3>
         </div>
         <!-- ROW TO BUILD TRAIN TABLE -->
         <div class="row">
             <div class="col-md-12">
-                <div class="card-header">Current Train Schedule</div>
+                <div class="card-header" id="currentTableHeader">Current Train Schedule</div>
                 <div class="card-body">
                     <table class="table table-sm table-hover" id="current-table">
                         <thread>
-                            <tr>
-                                <th scope="col">Train Name</th>
-                                <th scope="col">Destination</th>
-                                <th scope="col">Frequency (min)</th>
-                                <th scope="col">Next Arrival</th>
-                                <th scope="col">Minutes Away</th>
+                            <tr id="tableHeader">
+                                <th scope="col">TRAIN NAME</th>
+                                <th scope="col">DESTINATION</th>
+                                <th scope="col">FREQUENCY (MIN)</th>
+                                <th scope="col">NEXT ARRIVAL</th>
+                                <th scope="col">MINUTES AWAY</th>
                             </tr>
                         </thread>
                         <tbody>
@@ -72,20 +72,20 @@
                         <!-- FORM -->
                         <form>
                             <div class="form-group">
-                                <label for="train-input">Train Name</label>
-                                <input class="form-control" id="train-input" placeholder="Train name..." type="text">
+                                <label for="train-input">Train Line Name</label>
+                                <input class="form-control" id="train-input" placeholder="Train name" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="destination-input">Destination</label>
-                                <input class="form-control" id="destination-input" placeholder="Draper" type="text">
+                                <input class="form-control" id="destination-input" placeholder="Destination" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="start-input">First Train Time (HH:mm AM/PM)</label>
                                 <input class="form-control" id="start-input" placeholder="00:05" type="time">
                             </div>
                             <div class="form-group">
-                                <label for="frequency-input">Frequency</label>
-                                <input class="form-control" id="frequency-input" placeholder="20" type="text">
+                                <label for="frequency-input">Frequency (mins)</label>
+                                <input class="form-control" id="frequency-input" placeholder="i.e. 20" type="text">
                             </div>
                             <button class="btn float-right" id="submit-train-btn">Submit</button>
                         </form>
