@@ -1,31 +1,43 @@
 // CONFIG TO INITIALIZE FIREBASE 
-var firebaseConfig = {
-    apiKey: "AIzaSyA3lQu1IGvfk-VNNCrwaNjngkxAehDzNYc",
-    authDomain: "train-scheduler-fa2d4.firebaseapp.com",
-    databaseURL: "https://train-scheduler-fa2d4.firebaseio.com",
-    projectId: "train-scheduler-fa2d4",
-    storageBucket: "train-scheduler-fa2d4.appspot.com",
-    messagingSenderId: "263713409512",
-    appId: "1:263713409512:web:5103d832464d63ac6a7c5d",
-    measurementId: "G-XD3ZVT33C5"
+// var firebaseConfig = {
+//     apiKey: "AIzaSyA3lQu1IGvfk-VNNCrwaNjngkxAehDzNYc",
+//     authDomain: "train-scheduler-fa2d4.firebaseapp.com",
+//     databaseURL: "https://train-scheduler-fa2d4.firebaseio.com",
+//     projectId: "train-scheduler-fa2d4",
+//     storageBucket: "train-scheduler-fa2d4.appspot.com",
+//     messagingSenderId: "263713409512",
+//     appId: "1:263713409512:web:5103d832464d63ac6a7c5d",
+//     measurementId: "G-XD3ZVT33C5"
+// };
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBQV7skrnof5LkcbuB9jVd7qbMb4nTjOpA",
+    authDomain: "train-app-b38e4.firebaseapp.com",
+    databaseURL: "https://train-app-b38e4.firebaseio.com",
+    projectId: "train-app-b38e4",
+    storageBucket: "train-app-b38e4.appspot.com",
+    messagingSenderId: "126597731751",
+    appId: "1:126597731751:web:c8c30857fd307c23399282",
+    measurementId: "G-Y1C0PL2Z5G"
 };
-  // Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
+// var trainName = "";
+// var trainDestination = "";
+// var trainStart = "";
+// var trainFrequency = "";
+
 // onClick event to add trains to the database
-$('#submit-train-btn').on('click', function(event)  {
+$("#submit-train-btn").on("click", function(event)  {
     event.preventDefault();
 
     // var to grab user input
-    var trainName = $('#train-input').val().trim();
-    console.log(trainName);
-    var trainDestination = $('#destination-input').val().trim();
-    console.log(trainDestination);
-    var trainStart = $('#start-input').val().trim();
-    console.log(trainStart);
-    var trainFrequency = $('#frequency-input').val().trim();
-    console.log(trainFrequency);
+    var trainName = $("#train-name-input").val().trim();
+    var trainDestination = $("#destination-input").val().trim();
+    var trainStart = moment($("#start-input").val().trim(), "HH:mm").format("HH:mm");
+    var trainFrequency = $("#frequency-input").val().trim();
 
     // new object to store values to push to Firease
     var newTrain = {
@@ -44,16 +56,18 @@ $('#submit-train-btn').on('click', function(event)  {
     console.log(newTrain.frequency);
 
     // Alert that a new train had been added 
-    alert(newTrain.name + " successfully added!");
+    console.log(newTrain.name + " successfully added!");
 
-    $('#train-input').val('');
-    $('#destination-input').val('');
-    $('#start-input').val('');
-    $('#frequency-input').val('');
+    $('#train-input').val("");
+    $('#destination-input').val("");
+    $('#start-input').val("");
+    $('#frequency-input').val("");
+
+    // $('#current-table').html("");
 });
 
 //FIREBASE EVENT TO ADDED TRAINS TO THE DATABASE AND APPEND THE VALUES TO THE EXISTING TRAIN TABLE
-database.ref().on('child_added', function(childSnapshot) {
+database.ref().on("child_added", function(childSnapshot) {
     console.log(childSnapshot.val());
 
     var trainName = childSnapshot.val().name;
@@ -101,6 +115,5 @@ database.ref().on('child_added', function(childSnapshot) {
     );
 
     // APPEND THE NEW ROW TO THE TABLE
-    $('#current-table > tbody').append(newRow);
+    $('#train-table > tbody').append(newRow);
 });
-
