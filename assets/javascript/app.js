@@ -33,6 +33,7 @@ var database = firebase.database();
 $("#submit-train-btn").on("click", function(event)  {
     event.preventDefault();
 
+
     // var to grab user input
     var trainName = $("#train-name-input").val().trim();
     var trainDestination = $("#destination-input").val().trim();
